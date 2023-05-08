@@ -54,7 +54,7 @@ data "aws_ami" "ubuntu5723" {
 resource "aws_instance" "my_ec2" {
   ami                    = data.aws_ami.ubuntu5723.id #var.ami
   instance_type          = "t2.micro"
-  key_name               = "boy-keys" #var.key_name
+  key_name               = var.key_name
   vpc_security_group_ids = ["default"]
   tags = {
     Name = "my_ec2"
